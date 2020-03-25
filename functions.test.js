@@ -60,3 +60,18 @@ test('Weight should be under 1600 and above 1400', () => {
   expect(loadWeight(800, 700)).toBeLessThan(1600)
   expect(loadWeight(800, 700)).toBeGreaterThan(1400)
 })
+
+// Regex
+test('There is no I in time', () => {
+  expect('time').not.toMatch(/I/)
+  // case insensitive version
+  // expect('time').not.toMatch(/I/i)
+})
+
+// Array
+// usually better to keep the test and the tested separately
+// but now is ok for learning occasion
+test('Mogyi should be in usernames', () => {
+  const usernames = ['Pocok', 'Pista', 'Mogyi']
+  expect(usernames).toContain('Mogyi')
+})
