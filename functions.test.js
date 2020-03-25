@@ -1,6 +1,6 @@
 const functions = require('./functions')
 // use the spread syntax
-const { add, isNull, checkValue } = functions
+const { add, isNull, checkValue, createUser, loadWeight } = functions
 
 // write tests
 test(' Add 1 + 2 equals to 3', () => {
@@ -26,4 +26,37 @@ test('Should be null', () => {
 
 test('Should be falsy', () => {
   expect(checkValue(undefined)).toBeFalsy()
+})
+
+// test createUser > not OK with toBe
+// test('User should be Pocok Coder object', () => {
+//   expect(createUser()).toBe({
+//     firstName: 'Pocok',
+//     lastName: 'Coder'
+//   })
+// })
+
+// test createUser > OK with toStrictEqual
+// test('User should be Pocok Coder object', () => {
+//   expect(createUser()).toStrictEqual({
+//     firstName: 'Pocok',
+//     lastName: 'Coder'
+//   })
+// })
+
+// toEqual
+test('User should be Pocok Coder object', () => {
+  expect(createUser()).toEqual({
+    firstName: 'Pocok',
+    lastName: 'Coder'
+  })
+})
+
+// toBe is for primitive types
+// toEqual is for composite types (object, array...)
+
+// less than and greater than
+test('Weight should be under 1600 and above 1400', () => {
+  expect(loadWeight(800, 700)).toBeLessThan(1600)
+  expect(loadWeight(800, 700)).toBeGreaterThan(1400)
 })
