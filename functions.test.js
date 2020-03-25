@@ -1,6 +1,14 @@
 const functions = require('./functions')
 // use the spread syntax
-const { add, isNull, checkValue, createUser, loadWeight } = functions
+const {
+  add,
+  isNull,
+  checkValue,
+  createUser,
+  loadWeight,
+  fetchUser,
+  fetchUserAsyncAwait
+} = functions
 
 // write tests
 test(' Add 1 + 2 equals to 3', () => {
@@ -74,4 +82,23 @@ test('There is no I in time', () => {
 test('Mogyi should be in usernames', () => {
   const usernames = ['Pocok', 'Pista', 'Mogyi']
   expect(usernames).toContain('Mogyi')
+})
+
+// working with async data, axios > jsonplaceholder, user/1
+// Promise
+test('User fetched name should be Leanne Graham', () => {
+  // do not forget the assertion
+  expect.assertions(1)
+  return fetchUser()
+    .then(data => {
+      expect(data.name).toEqual('Leanne Graham')
+    })
+})
+
+// refactor to async/await
+test('Async/await => User fetched name should be Leanne Graham', async () => {
+  // do not forget the assertion
+  expect.assertions(1)
+  const data = await fetchUserAsyncAwait()
+  expect(data.name).toEqual('Leanne Graham')
 })
