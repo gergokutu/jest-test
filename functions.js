@@ -1,7 +1,7 @@
 const functions = {
-  add: (a, b) => {
-    return a + b
-  }
+  add: (a, b) => a + b,
+  isNull: () => null,
+  checkValue: x => x
 }
 
 // export functions object
