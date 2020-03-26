@@ -18,7 +18,6 @@ const functions = {
   fetchUserAsyncAwait: async () => {
     try {
       const response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
-      console.log(response.data.name)
       return response.data
     } catch(error) {
       console.log("error:", error)
