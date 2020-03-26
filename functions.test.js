@@ -15,11 +15,29 @@ const {
 // afterEach(() => closeDatabase())
 
 // run initDatabase before and closeDatabase after all tests
-beforeAll(() => initDatabase())
-afterAll(() => closeDatabase())
+// beforeAll(() => initDatabase())
+// afterAll(() => closeDatabase())
 
-const initDatabase = () => console.log('Database Initialized...')
-const closeDatabase = () => console.log('Database Closed...')
+// const initDatabase = () => console.log('Database Initialized...')
+// const closeDatabase = () => console.log('Database Closed...')
+
+// target certain tests
+// Checking Name... should be seen twice
+const nameCheck = () => console.log('Checking Name...')
+
+describe('Checking Names', () => {
+  beforeEach(() => nameCheck())
+
+  test('User is Jeff', () => {
+    const user = 'Jeff'
+    expect(user).toBe('Jeff')
+  })
+
+  test('User is Karen', () => {
+    const user = 'Karen'
+    expect(user).toBe('Karen')
+  })
+})
 
 // write tests
 test(' Add 1 + 2 equals to 3', () => {
