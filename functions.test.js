@@ -10,6 +10,17 @@ const {
   fetchUserAsyncAwait
 } = functions
 
+// run initDatabase before and closeDatabase after each tests
+// beforeEach(() => initDatabase())
+// afterEach(() => closeDatabase())
+
+// run initDatabase before and closeDatabase after all tests
+beforeAll(() => initDatabase())
+afterAll(() => closeDatabase())
+
+const initDatabase = () => console.log('Database Initialized...')
+const closeDatabase = () => console.log('Database Closed...')
+
 // write tests
 test(' Add 1 + 2 equals to 3', () => {
   expect(add(1, 2)).toBe(3)
