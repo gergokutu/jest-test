@@ -1,7 +1,7 @@
 const isAnagram = require('./anagramChecker')
 
 test('Check if isAnagram function exists', () => {
-  expect(typeof isAnagram).toEqual('function')
+  expect(typeof isAnagram).toBe('boolean')
 })
 
 test('"Dormitory" is an anagram of "dirty room##" (should return true)', () => {
